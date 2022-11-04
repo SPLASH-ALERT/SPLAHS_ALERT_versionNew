@@ -1,0 +1,39 @@
+﻿@model splash_alert.Models.ViewModels.VRecoverypass
+
+@{
+    ViewData["Title"] = "Recovery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="form-Style"> 
+
+          <form  asp-controller ="LoginController1"  asp-action ="Recovery" method="post">
+            @Html.HiddenFor(d =>d.token)
+                <label> escribe tu contraseña</label>
+                 @Html.TextBoxFor(d=>d.Password, null,new{@class="form-control"})
+                 @Html.ValidationMessageFor(d=>d.Password,null,new{style="color:red"})
+                 <br/>
+                 <label> vuelve a colocar tu contraseña</label>
+                 @Html.TextBoxFor(d=>d.ConfirmPassword, null,new{@class="form-control"})
+                 @Html.ValidationMessageFor(d=>d.ConfirmPassword,null,new{style="color:red"})
+                 <br/>
+
+
+
+             <div class="text-right">
+                   <button class="btn btn-primary btn-sm w-25" type="submit">Recuperar</button>
+             </div>
+
+          </form>
+               
+             
+            
+
+
+        </div>
+
+    </div>
+</div>
+

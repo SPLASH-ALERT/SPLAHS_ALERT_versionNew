@@ -1,0 +1,287 @@
+﻿
+@{
+    ViewData["Title"] = "reportes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mt-2">
+    <div class="col- sm-6">
+    <div class="card">
+        <div class="card-header">Grafica de barras de reporte de incidentes de los ultimos días </div>
+        <div class="card-body">
+            <canvas id="chartCausas" style="max-height:250px"></canvas>
+            
+        </div>
+    </div>
+</div>
+
+    <div class="col- sm-6">
+    <div class="card">
+        <div class="card-header"> reporte de incidentes de los ultimos días </div>
+        <div class="card-body">
+            <canvas id="chartCausas1" style="max-height:250px"></canvas>
+            
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="row mt-2">
+     <div class="col- sm-6">
+    <div class="card">
+        <div class="card-header">indice de Causas de activacion</div>
+        <div class="card-body">
+            <canvas id="chartCausas11" style="max-height:250px"></canvas>
+
+        </div>
+    </div>
+</div>
+    <div class="col- sm-6">
+    <div class="card">
+        <div class="card-header">indice de Causas de activacion</div>
+        <div class="card-body">
+            <canvas id="chartCausas12" style="max-height:250px"></canvas>
+            
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+@section Scripts {
+
+    <script>
+        function resumenCausa(){ 
+         fetch("resumenCausa")
+            .then((response) => { 
+                return response.ok? response.json() : Promise.reject(response);
+            })
+            .then((dataJson) => {
+                      console.log(dataJson) 
+
+                 const labels = dataJson.map((item)=> {return item.fecha})
+                 const values = dataJson.map((item)=> {return item.cantidad})
+
+                  console.log(labels)
+                  console.log(values)
+
+
+    
+                    const data = {
+                        
+                        labels :labels,
+                        datasets: [{
+                            label: 'cantidad',
+                         data: values,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderWidth: 1
+                          }]
+                        };
+
+                const config = {
+                  type: 'bar',
+                  data: data,
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  },
+                };
+                
+                 const canvasBarras = document.getElementById("chartCausas");
+                 const graficoBarras = new Chart(canvasBarras, config)
+
+            }).catch((error)=>{
+                console.log("error")
+            })
+            }
+            
+
+                function resumenCausa0(){ 
+         fetch("resumenCausa")
+            .then((response) => { 
+                return response.ok? response.json() : Promise.reject(response);
+            })
+            .then((dataJson) => {
+
+                console.log(dataJson) 
+
+                 const labels = dataJson.map((item)=> {return item.fecha})
+                 const values = dataJson.map((item)=> {return item.cantidad})
+
+                  console.log(labels)
+                  console.log(values)
+
+
+                     const data = {
+                    labels :labels,
+                      datasets: [{
+                        label: 'cantidad',
+                        data: values,
+                        backgroundColor: [
+                          'rgb(255, 99, 132)',
+                          'rgb(54, 162, 235)',
+                          'rgb(255, 205, 86)',
+                          'rgba(201, 203, 207, 0.2)'
+                        ],
+                        hoverOffset: 4
+                      }]
+                    };
+
+                      const config = {
+                      type: 'doughnut',
+                      data: data,
+                        };
+                
+                 const canvasDona = document.getElementById("chartCausas1");
+                 const graficoDona = new Chart(canvasDona, config)
+
+            }).catch((error)=>{
+                console.log("error")
+            })
+            }
+
+
+
+
+            
+                function resumenCausa1(){ 
+         fetch("resumenCausa2")
+            .then((response) => { 
+                return response.ok? response.json() : Promise.reject(response);
+            })
+            .then((dataJson) => {
+
+                console.log(dataJson) 
+
+                 const labels = dataJson.map((item)=> {return item.causa})
+                 const values = dataJson.map((item)=> {return item.cantidad})
+
+                  console.log(labels)
+                  console.log(values)
+
+
+    
+                    const data = {
+                        
+                        labels :labels,
+                        datasets: [{
+                            label: 'cantidad',
+                         data: values,
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderWidth: 1
+                          }]
+                        };
+
+                const config = {
+                  type: 'bar',
+                  data: data,
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  },
+                };
+                
+                 const canvasBarras1 = document.getElementById("chartCausas11");
+                 const graficoBarras1 = new Chart(canvasBarras1, config)
+
+            }).catch((error)=>{
+                console.log("error")
+            })
+    }
+        
+    
+         function resumenCausa2(){ 
+         fetch("resumenCausa2")
+            .then((response) => { 
+                return response.ok? response.json() : Promise.reject(response);
+            })
+            .then((dataJson) => {
+
+                console.log(dataJson) 
+
+                 const labels = dataJson.map((item)=> {return item.causa})
+                 const values = dataJson.map((item)=> {return item.cantidad})
+
+                  console.log(labels)
+                  console.log(values)
+
+
+                  const data = {
+                    labels :labels,
+                      datasets: [{
+                        label: 'cantidad',
+                        data: values,
+                        backgroundColor: [
+                          'rgb(255, 99, 132)',
+                          'rgb(54, 162, 235)',
+                          'rgb(255, 205, 86)',
+                          'rgba(201, 203, 207, 0.2)'
+                        ],
+                        hoverOffset: 4
+                      }]
+                    };
+
+                      const config = {
+                      type: 'doughnut',
+                      data: data,
+                        };
+                    
+                 
+                
+                 const canvasBarras2 = document.getElementById("chartCausas12");
+                 const graficoBarras2 = new Chart(canvasBarras2, config)
+
+            }).catch((error)=>{
+                console.log("error")
+            })
+    }
+        
+
+            $(document).ready(() =>{
+
+            resumenCausa()
+            resumenCausa0()
+            resumenCausa1()
+            resumenCausa2()
+        })
+
+        
+    </script>
+
+
+
+}
+     
+   
+
+
+ 
+
+
+  
+
+
+  
+
+    
+          
+         
+
+           
+            
+            
+            
+            
+             
+             
+   
+
+
+  

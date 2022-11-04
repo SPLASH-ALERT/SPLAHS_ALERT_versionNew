@@ -1,0 +1,67 @@
+﻿@model splash_alert.Models.ViewModels.NewUsuario
+@{
+    ViewData["Title"] = "registro_empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Model.n_usuario.IdUsuario == 0){
+
+    <h1>>Crear Empleado</h1>
+
+}
+
+<div class="row">
+    
+    <div class="col-sm-4">
+
+        <form asp-action="registro_empleado" asp-controller="Home" method="post">
+           <input type="hidden" asp-for=n_usuario.IdUsuario/>
+
+           <div class="mb-2">
+               <label class="form-label"  asp-for="n_usuario.IdUsuario"> Nombre </label> />
+              <input class="form-control form-control-sm"  asp-for=n_usuario.Nombre type="text" /> </div>
+            
+               <div class="mb-2">
+               <label class="form-label"  asp-for="n_usuario.IdUsuario"> Apellido </label> />
+              <input class="form-control form-control-sm"  asp-for=n_usuario.Apellido type="text" /></div>
+
+               <div class="mb-2">
+               <label class="form-label"  asp-for="n_usuario.IdUsuario"> Nombre de usuario </label> />
+              <input class="form-control form-control-sm"  asp-for=n_usuario.NombreUsuario type="text" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label"  asp-for="n_usuario.IdUsuario"> Contraseña </label> />
+              <input class="form-control form-control-sm"  asp-for=n_usuario.Contrasena type="password" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label"  asp-for="n_usuario.IdUsuario"> Correo electronico </label> />
+              <input class="form-control form-control-sm"  asp-for=n_usuario.Correo type="email" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label"  asp-for="n_usuario.IdUsuario"> Fecha de nacimiento </label> />
+              <input class="form-control form-control-sm"  asp-for=n_usuario.FechaNacimiento type="date" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label"  asp-for="n_usuario.IdUsuario"> Estado </label> /> 
+              <input class="form-control form-control-sm"  asp-for=n_usuario.Estado type="text" /> </div>
+              
+                 <div class="mb-3"> 
+                     
+                @if (Model.n_usuario.IdUsuario == 0)
+                {
+                    
+                    <button class="btn btn-primary btn-sm w-25" type="submit">Registrar</button>
+
+                }
+
+                 <a class="btn btn-dark btn-sm" asp-action="registro_encargado" asp-controller="Home" >Regresar</a>
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
