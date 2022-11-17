@@ -3,6 +3,13 @@
     Layout = null;
 }
 
+<style>
+
+    body {
+        background-image: radial-gradient(circle at 50% -20.71%, #fbffff 0, #ecfffd 7.14%, #dafffa 14.29%, #c6fff7 21.43%, #aefff5 28.57%, #92fff3 35.71%, #70fcf2 42.86%, #3cf2f2 50%, #00e7f3 57.14%, #00ddf6 64.29%, #00d4fa 71.43%, #00cbff 78.57%, #00c2ff 85.71%, #00baff 92.86%, #00b3ff 100%);
+    }
+</style>
+
 <!DOCTYPE html>
 
 <html lang="e">
@@ -12,46 +19,46 @@
     <title>iniciar sesión</title>
 </head>
 <body>
-        <div class="mb-3">
-                  <div id="google_translate_element"></div>
 
-                            <script type="text/javascript">
-                                function googleTranslateElementInit() {
-                                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                                }
-                            </script>
 
-                            <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="mb-3"> </div>
 
-                           </div>
-    <div class="row mt-5"> 
-            <div class ="col-sm-4 offset-sm-4"> 
-                  
-                <form asp-controller ="LoginController1" asp-action ="Login" method ="post" >
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">CORREO</label>
-                        <input type="email" class="form-control" asp-for="Correo">
-                        
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">CONTRASEÑA</label>
-                        <input type="password" class="form-control" asp-for="Contrasena">
-                      </div>
-               
-                      <button type="submit" class="btn btn-primary">INGRESAR</button>
-                      <div> 
 
-                          @Html.ActionLink("Olvidaste tu contraseña", "StartRecovery")
+    <div class="row mt-5">
 
-                      </div>
-                    
-                </form>
 
-                
-                   
+        <div class="col-sm-4 offset-sm-4">
+
+            <div class="card">
+               <div class="card-header">           LOGIN              </div>
+                <div class="card-body">
+                    <form asp-controller="LoginController1" asp-action="Login" method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">CORREO</label>
+                            <input type="email" class="form-control" asp-for="Correo">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">CONTRASEÑA</label>
+                            <input type="password" class="form-control" asp-for="Contrasena">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">INGRESAR</button>
+                        <div>
+
+                            @Html.ActionLink("Olvidaste tu contraseña", "StartRecovery")
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
     </div>
-    
+
     </div>
-       <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </body>
 </html>

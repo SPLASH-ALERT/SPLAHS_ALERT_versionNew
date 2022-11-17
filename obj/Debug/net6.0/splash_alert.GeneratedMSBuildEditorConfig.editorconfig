@@ -8,65 +8,81 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = splash_alert
 build_property.RootNamespace = splash_alert
-build_property.ProjectDir = G:\Desktop\splash_alert\
+build_property.ProjectDir = G:\Desktop\git\SPLAHS_ALERT_versionNew\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = G:\Desktop\splash_alert
+build_property.MSBuildProjectDirectory = G:\Desktop\git\SPLAHS_ALERT_versionNew
 build_property._RazorSourceGeneratorDebug = 
 
-[G:/Desktop/splash_alert/Views/Home/causas.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/causas.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjYXVzYXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Home/Index.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/confirmacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjb25maXJtYWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Home/Privacy.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/objeto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxvYmpldG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Home/registro_empleado.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWdpc3Ryb19lbXBsZWFkby5jc2h0bWw=
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/registro_admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWdpc3Ryb19hZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Home/registro_encargado.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/registro_empleado1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWdpc3Ryb19lbXBsZWFkbzEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/registro_encargado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWdpc3Ryb19lbmNhcmdhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Home/reportes.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/registro_encargado1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZWdpc3Ryb19lbmNhcmdhZG8xLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Home/reportes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxyZXBvcnRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/LoginController1/Index.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/LoginController1/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5Db250cm9sbGVyMVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/LoginController1/Recovery.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/LoginController1/Recovery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5Db250cm9sbGVyMVxSZWNvdmVyeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/LoginController1/StartRecovery.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/LoginController1/StartRecovery.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5Db250cm9sbGVyMVxTdGFydFJlY292ZXJ5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Shared/Error.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Shared/_ValidationScriptsPartial.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/_ViewImports.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/_ViewStart.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Desktop/splash_alert/Views/Shared/_Layout.cshtml]
+[G:/Desktop/git/SPLAHS_ALERT_versionNew/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-jqvdua7g3n

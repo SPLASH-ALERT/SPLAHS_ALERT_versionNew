@@ -1,29 +1,53 @@
-﻿
+﻿@model splash_alert.Models.Causa
 @{
     ViewData["Title"] = "causas";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}    
+}
+
+<style>
+
+    body {
+        background-image: radial-gradient(circle at 50% -20.71%, #eaecd0 0, #e6edd2 6.25%, #e2eed4 12.5%, #deefd6 18.75%, #daf0d9 25%, #d6f1dc 31.25%, #d3f1df 37.5%, #d0f2e2 43.75%, #cdf2e6 50%, #cbf2ea 56.25%, #c9f2ed 62.5%, #c8f2f1 68.75%, #c7f2f4 75%, #c7f2f7 81.25%, #c8f1fa 87.5%, #c9f1fd 93.75%, #cbf0ff 100%);
+    }
+</style>
 
 <div class="text-center">
     <p>Alerta de activación!!!.</p>
-     <h1 class="display-4">¿Qué causo la alerta?</h1>
+    <h1 class="display-4">¿Qué causo la alerta?</h1>
 </div>
-       
-         
-            <div class ="col-sm-4 offset-sm-4"> 
-                    
 
-                  <a class="btn btn-outline-warning"  style='width:200px; height:200px' asp-action="ninio" asp-controller="Home" method="post" >Niñor</a>
-                  <a class="btn  btn-outline-danger"  style='width:200px; height:200px' asp-action="adulto" asp-controller="Home" method="post" >Adulto</a>
-                   <br>
-                   <a class="btn btn-outline-info "  style='width:200px; height:200px' asp-action="animal" asp-controller="Home"  method="post">Animal</a>
-                     <a class="btn btn-outline-success"  style='width:200px; height:200px' asp-action="objeto" asp-controller="Home" method="post">Objeto</a>
-                  
-               
-       
-    </div>
-    
-           
-         
+<div class="col-sm-4 offset-sm-4">
+
+    <form asp-controller="Home" asp-action="ninio" method="post">
+
+        <button type="submit" class="btn btn-outline-warning" style='width:200px; height:200px'>Niño</button>
+
+    </form>
+
+    <form asp-controller="Home" asp-action="adulto" method="post">
+
+        <button type="submit" class="btn  btn-outline-danger" style='width:200px; height:200px'>Adulto</button>
+
+    </form>
+
+    <br>
+
+    <form asp-controller="Home" asp-action="animal" method="post">
+
+        <button type="submit" class="btn btn-outline-info " style='width:200px; height:200px'>Animal</button>
+
+    </form>
+
+    <form asp-controller="Home" asp-action="objeto" method="post">
+
+        <button type="submit" class="btn btn-outline-success" style='width:200px; height:200px'>Objeto</button>
+
+    </form>
+
+
+</div>
+
+
+
 
 

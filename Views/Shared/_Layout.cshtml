@@ -6,6 +6,8 @@
 
 <html lang="en">
 
+
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,8 +16,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/splash_alert.styles.css" asp-append-version="true" />
 </head>
+
+
 <body>
     
+
 
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <header>
@@ -44,6 +49,13 @@
                         </li>
                         }
 
+                           @if(User.IsInRole("1"))
+                        {
+                             <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="reportes"> Generar reportes</a>
+                        </li>
+                        }
+
 
                         @if (User.IsInRole("1"))
                         {
@@ -52,16 +64,16 @@
                         </li>
                         }
                      
-
+                           @if (User.IsInRole("1"))
+                        {
+                               <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="registro_encargado1"> Regitro de administradores</a>
+                        </li>
+                        }
                      
                       
 
-                        @if(User.IsInRole("1"))
-                        {
-                             <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="reportes"> Generar reportes</a>
-                        </li>
-                        }
+                     
 
 
                         @if(User.IsInRole("2") ||User.IsInRole("1") )

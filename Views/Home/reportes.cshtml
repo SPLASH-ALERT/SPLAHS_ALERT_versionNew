@@ -3,6 +3,15 @@
     ViewData["Title"] = "reportes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+   <style>                                 
+
+   body{
+
+  background-image: radial-gradient(circle at 50% -20.71%, #fbffff 0, #ecfffd 7.14%, #dafffa 14.29%, #c6fff7 21.43%, #aefff5 28.57%, #92fff3 35.71%, #70fcf2 42.86%, #3cf2f2 50%, #00e7f3 57.14%, #00ddf6 64.29%, #00d4fa 71.43%, #00cbff 78.57%, #00c2ff 85.71%, #00baff 92.86%, #00b3ff 100%);
+
+   }
+
+   </style>
 
 <div class="row mt-2">
     <div class="col- sm-6">
@@ -10,7 +19,7 @@
         <div class="card-header">Grafica de barras de reporte de incidentes de los ultimos días </div>
         <div class="card-body">
             <canvas id="chartCausas" style="max-height:250px"></canvas>
-            
+
         </div>
     </div>
 </div>
@@ -20,7 +29,7 @@
         <div class="card-header"> reporte de incidentes de los ultimos días </div>
         <div class="card-body">
             <canvas id="chartCausas1" style="max-height:250px"></canvas>
-            
+
         </div>
     </div>
 </div>
@@ -41,7 +50,7 @@
         <div class="card-header">indice de Causas de activacion</div>
         <div class="card-body">
             <canvas id="chartCausas12" style="max-height:250px"></canvas>
-            
+
         </div>
     </div>
 </div>
@@ -67,9 +76,9 @@
                   console.log(values)
 
 
-    
+
                     const data = {
-                        
+
                         labels :labels,
                         datasets: [{
                             label: 'cantidad',
@@ -90,7 +99,7 @@
                     }
                   },
                 };
-                
+
                  const canvasBarras = document.getElementById("chartCausas");
                  const graficoBarras = new Chart(canvasBarras, config)
 
@@ -98,7 +107,7 @@
                 console.log("error")
             })
             }
-            
+
 
                 function resumenCausa0(){ 
          fetch("resumenCausa")
@@ -135,7 +144,7 @@
                       type: 'doughnut',
                       data: data,
                         };
-                
+
                  const canvasDona = document.getElementById("chartCausas1");
                  const graficoDona = new Chart(canvasDona, config)
 
@@ -147,7 +156,7 @@
 
 
 
-            
+
                 function resumenCausa1(){ 
          fetch("resumenCausa2")
             .then((response) => { 
@@ -164,9 +173,9 @@
                   console.log(values)
 
 
-    
+
                     const data = {
-                        
+
                         labels :labels,
                         datasets: [{
                             label: 'cantidad',
@@ -187,7 +196,7 @@
                     }
                   },
                 };
-                
+
                  const canvasBarras1 = document.getElementById("chartCausas11");
                  const graficoBarras1 = new Chart(canvasBarras1, config)
 
@@ -195,8 +204,8 @@
                 console.log("error")
             })
     }
-        
-    
+
+
          function resumenCausa2(){ 
          fetch("resumenCausa2")
             .then((response) => { 
@@ -232,9 +241,9 @@
                       type: 'doughnut',
                       data: data,
                         };
-                    
-                 
-                
+
+
+
                  const canvasBarras2 = document.getElementById("chartCausas12");
                  const graficoBarras2 = new Chart(canvasBarras2, config)
 
@@ -242,7 +251,7 @@
                 console.log("error")
             })
     }
-        
+
 
             $(document).ready(() =>{
 
@@ -252,36 +261,35 @@
             resumenCausa2()
         })
 
-        
+
     </script>
 
 
 
 }
-     
-   
 
 
- 
 
 
-  
 
 
-  
-
-    
-          
-         
-
-           
-            
-            
-            
-            
-             
-             
-   
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

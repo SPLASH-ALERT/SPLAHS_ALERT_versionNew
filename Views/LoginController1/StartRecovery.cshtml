@@ -4,28 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+
+    body {
+        background-image: radial-gradient(circle at 50% -20.71%, #fbffff 0, #ecfffd 7.14%, #dafffa 14.29%, #c6fff7 21.43%, #aefff5 28.57%, #92fff3 35.71%, #70fcf2 42.86%, #3cf2f2 50%, #00e7f3 57.14%, #00ddf6 64.29%, #00d4fa 71.43%, #00cbff 78.57%, #00c2ff 85.71%, #00baff 92.86%, #00b3ff 100%);
+    }
+</style>
+
 <div class="row">
     <div class="col-md-6 offset-3">
-        <div class="form-Style"> 
+        <div class="form-Style">
 
-          <form  asp-controller ="LoginController1"  asp-action ="StartRecovery" method="post">
-            
+            <form asp-controller="LoginController1" asp-action="StartRecovery" method="post">
+
                 <label> escribe tu correo electronico</label>
-                 @Html.TextBoxFor(d=>d.Email, null,new{@class="form-control"})
-                 @Html.ValidationMessageFor(d=>d.Email,null,new{style="color:red"})
-                 <br/>
-             <div class="text-right">
-                   <button class="btn btn-primary btn-sm w-25" type="submit">Recuperar</button>
-             </div>
+                @Html.TextBoxFor(d=>d.Email, null,new{@class="form-control"})
+                @Html.ValidationMessageFor(d=>d.Email,null,new{style="color:red"})
+                <br />
+                <div class="text-right">
+                    <button class="btn btn-primary btn-sm w-25" type="submit">Recuperar</button>
+                </div>
 
-          </form>
-               
-             
-            
-
-
+            </form>
         </div>
-
     </div>
 </div>
 

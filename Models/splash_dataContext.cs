@@ -43,7 +43,7 @@ namespace splash_alert.Models
                     .HasColumnName("causa");
 
                 entity.Property(e => e.FechaCausa)
-                    .HasColumnType("date")
+                    .HasColumnType("datetime2(7)")
                     .HasColumnName("fecha_causa");
 
                 entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");

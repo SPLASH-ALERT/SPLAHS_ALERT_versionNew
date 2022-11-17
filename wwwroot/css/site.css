@@ -14,7 +14,7 @@ html {
 }
 
 body {
- 
+    background: radial-gradient(200px top, ellipse, white, #1162ac, black);
 }
 
 .row {

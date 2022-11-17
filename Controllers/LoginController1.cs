@@ -37,6 +37,8 @@ namespace splash_alert.Controllers
             {
 
                 string rol = user.IdRol.ToString();
+                string idU = user.IdUsuario.ToString();
+
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, user.NombreUsuario),
@@ -44,13 +46,13 @@ namespace splash_alert.Controllers
 
 
                 };
-                claims.Add(new Claim(ClaimTypes.Role, rol));
+                claims.Add(new Claim(ClaimTypes.Role, rol, ClaimTypes.Role,idU));
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
-
+               
 
                 return RedirectToAction("Index", "Home");
             }
@@ -80,8 +82,21 @@ namespace splash_alert.Controllers
         {
             Models.ViewModels.VRecoverypass model = new Models.ViewModels.VRecoverypass();
             model.token = token;
+            if (model.token == null || model.token.Trim().Equals(""))
+            {
+                return View("Index");
 
-            return View();
+            }
+            var user = dbcontext.Usuarios.Where(d => d.Tokken == model.token).FirstOrDefault();
+
+            if (user ==null)
+            {
+                ViewBag.Error = "Este token ya ha expirado";
+                return View("Index"); 
+            }
+           
+
+            return View(model);
         }
         [HttpPost]
         public IActionResult Recovery(Models.ViewModels.VRecoverypass model)
@@ -98,6 +113,7 @@ namespace splash_alert.Controllers
                 if (user != null)
                 {
                     user.Contrasena = model.Password;
+                    user.Tokken = null;
                     dbcontext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     dbcontext.SaveChanges();
                     
@@ -119,13 +135,14 @@ namespace splash_alert.Controllers
             if (ModelState.IsValid)
             {
                 string token = GetSha256(Guid.NewGuid().ToString());
-
+                fecha = DateTime.Now;
 
                 var user = dbcontext.Usuarios.Where(x => x.Correo == model.Email).FirstOrDefault();
                 if (user != null)
                 {
                     user.Tokken = token;
                     user.FechaCreacion = fecha;
+                   
                     dbcontext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     dbcontext.SaveChanges();
                     

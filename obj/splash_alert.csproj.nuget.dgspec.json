@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Desktop\\splash_alert\\splash_alert.csproj": {}
+    "G:\\Desktop\\git\\SPLAHS_ALERT_versionNew\\splash_alert.csproj": {}
   },
   "projects": {
-    "G:\\Desktop\\splash_alert\\splash_alert.csproj": {
+    "G:\\Desktop\\git\\SPLAHS_ALERT_versionNew\\splash_alert.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Desktop\\splash_alert\\splash_alert.csproj",
+        "projectUniqueName": "G:\\Desktop\\git\\SPLAHS_ALERT_versionNew\\splash_alert.csproj",
         "projectName": "splash_alert",
-        "projectPath": "G:\\Desktop\\splash_alert\\splash_alert.csproj",
+        "projectPath": "G:\\Desktop\\git\\SPLAHS_ALERT_versionNew\\splash_alert.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "G:\\Desktop\\splash_alert\\obj\\",
+        "outputPath": "G:\\Desktop\\git\\SPLAHS_ALERT_versionNew\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,6 +67,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.10, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -4,22 +4,28 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
+using splash_alert.Servicio;
 
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using splash_alert.Models.ViewModels;
+using splash_alert.Models.Servicios;
 
 namespace splash_alert.Controllers
 {
     //[Authorize]
     public class HomeController : Controller
     {
-        
+
 
         public readonly splash_dataContext dbcontext;
+        public readonly IServicioApi _servicio;
 
-        public HomeController(splash_dataContext _context)
+
+        public HomeController(splash_dataContext _context, IServicioApi servicioApi)
         {
             dbcontext = _context;
+            _servicio = servicioApi;
         }
 
         public IActionResult resumenCausa()
@@ -42,18 +48,18 @@ namespace splash_alert.Controllers
         [Authorize]
         public IActionResult resumenCausa2()
         {
-          
+
 
             List<VCausaCantidad> Lista = (from tbCausaCnt in dbcontext.Causas
-                                
-                                  group tbCausaCnt by tbCausaCnt.Causa1 into grupo
-                                  orderby grupo.Count() descending
-                                  select new VCausaCantidad
-                                  {
-                                      causa = grupo.Key,
-                                      cantidad = grupo.Count(),
 
-                                  }).Take(10).ToList();
+                                          group tbCausaCnt by tbCausaCnt.Causa1 into grupo
+                                          orderby grupo.Count() descending
+                                          select new VCausaCantidad
+                                          {
+                                              causa = grupo.Key,
+                                              cantidad = grupo.Count(),
+
+                                          }).Take(10).ToList();
 
             return StatusCode(StatusCodes.Status200OK, Lista);
         }
@@ -68,15 +74,31 @@ namespace splash_alert.Controllers
         [Authorize]
         public IActionResult causas()
         {
-           
+
             return View();
         }
+
         [Authorize]
-        public IActionResult registro_encargado()
+        public async Task<IActionResult> registro_encargado1()
         {
-            List<Usuario> lista = dbcontext.Usuarios.ToList();
-          
-            return View(lista);
+            //List<UsuarioS> lista =  await _servicio.ListaAsistente();
+
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> registro_encargado(UsuarioS objeto)
+        {
+            bool respuesta;
+
+            respuesta = await _servicio.ListaAsistente(objeto);
+
+            if(respuesta)
+            return View(); 
+            else
+                return NoContent();
+
+
         }
 
         [Authorize]
@@ -90,116 +112,154 @@ namespace splash_alert.Controllers
             return View();
         }
 
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        public IActionResult registro_empleado1(UsuarioS objeto)
+        {
+
+            return View();
+
+        }
+
+        public IActionResult registro_admin()
+        {
+
+            return View();
+
+        }
+
+
         [Authorize]
-        [HttpGet]
-        public IActionResult registro_empleado()
+        [HttpPost]
+        public async Task<IActionResult> registro_empleado(UsuarioS objeto)
         {
+            bool respuesta;
 
-            NewUsuario nUsuario = new NewUsuario()
-            {
-                n_usuario = new Usuario()
-            };
 
-            return View(nUsuario);
+            respuesta = await _servicio.GuardarAsistente(objeto);
+
+
+            if (respuesta)
+
+
+                return RedirectToAction("registro_encargado", "Home");
+            else
+                return NoContent();
+
         }
+
         [Authorize]
         [HttpPost]
-        public IActionResult registro_empleado(NewUsuario nUsuario)
+        public async Task<IActionResult> registro_administrador(UsuarioS objeto)
         {
-           
-            if (nUsuario.n_usuario.IdUsuario == 0)
-            {
-                dbcontext.Usuarios.Add(nUsuario.n_usuario);
-            }
+            bool respuesta;
 
-            dbcontext.SaveChanges();
-            return RedirectToAction("registro_encargado", "Home");
+
+            respuesta = await _servicio.GuardarAdmin(objeto);
+
+
+            if (respuesta)
+
+
+                return RedirectToAction("registro_encargado", "Home");
+            else
+                return NoContent();
+
+
 
         }
 
-
-        [HttpGet]
-        public IActionResult ninio(string causa, DateTime fecha)
-        {
-            Models.ViewModels.IngresaCausacs model = new Models.ViewModels.IngresaCausacs();
-            model.Causab = causa;
-            model.FechaCausab = fecha;
-            return View();
-        }
-        [HttpPost]
-        public IActionResult ninio(Models.ViewModels.IngresaCausacs model)
-        {
-            return View();
-        }
-
-
-
-        [HttpGet]
-        public IActionResult adulto(string causa, DateTime fecha)
-        {
-            Models.ViewModels.IngresaCausacs model = new Models.ViewModels.IngresaCausacs();
-            model.Causab = causa;
-            model.FechaCausab = fecha;
-            return View();
-        }
+        // LLAMADO DE LA CONFIGURACIÓN DE APIS PARA EJECUTAR LOS CONTROLADORES PARA INGRESAR LAS CAUSAS
 
         [HttpPost]
-        public IActionResult adulto(Models.ViewModels.IngresaCausacs model)
+        public async Task<IActionResult> ninio(CausaS objeto)
         {
 
-            return View();
-        }
+            bool respuesta;
 
 
+            respuesta = await _servicio.GuardarCausaNino(objeto);
 
-        [HttpGet]
-        public IActionResult animal(string causa, DateTime fecha)
-        {
-            Models.ViewModels.IngresaCausacs model = new Models.ViewModels.IngresaCausacs();
-            model.Causab = causa;
-            model.FechaCausab = fecha;
-            return View();
+
+            if (respuesta)
+
+
+                return RedirectToAction("confirmacion", "Home");
+            else
+                return NoContent();
         }
 
 
         [HttpPost]
-        public IActionResult animal(Models.ViewModels.IngresaCausacs model)
+        public async Task<IActionResult> adulto(CausaS objeto)
         {
-            return View();
+
+            bool respuesta;
+
+
+            respuesta = await _servicio.GuardarCausaAdulto(objeto);
+
+
+            if (respuesta)
+
+
+                return RedirectToAction("confirmacion", "Home");
+            else
+                return NoContent();
         }
 
 
-        [HttpGet]
-        public IActionResult objeto(string causa, DateTime fecha)
-        {
-            Models.ViewModels.IngresaCausacs model = new Models.ViewModels.IngresaCausacs();
-            model.Causab = causa;
-            model.FechaCausab = fecha;
-
-            return View();
-        }
 
         [HttpPost]
-        public IActionResult objeto(Models.Causa model)
+        public async Task<IActionResult> animal(CausaS objeto)
         {
 
-           dbcontext.Causas.Add(model);
+            bool respuesta;
 
-            
 
+            respuesta = await _servicio.GuardarCausaAnimal(objeto);
+
+
+            if (respuesta)
+
+
+                return RedirectToAction("confirmacion", "Home");
+            else
+                return NoContent();
+
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> objeto(CausaS objeto)
+        {
+            bool respuesta;
+
+
+            respuesta = await _servicio.GuardarCausaObjeto(objeto);
+
+
+            if (respuesta)
+
+
+                return RedirectToAction("confirmacion", "Home");
+            else
+                return NoContent();
+
+        }
+
+
+        public IActionResult confirmacion()
+        {
             return View();
         }
 
     }
 }
 
-/*user.Contrasena = model.Password;
-                    dbcontext.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    dbcontext.SaveChanges();
-                    */

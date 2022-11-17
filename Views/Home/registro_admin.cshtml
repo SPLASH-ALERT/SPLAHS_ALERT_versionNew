@@ -1,0 +1,72 @@
+﻿@model splash_alert.Models.Servicios.UsuarioS;
+@{
+    ViewData["Title"] = "registro_admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <style>                                 
+   
+   body{
+
+  background-image: radial-gradient(circle at 50% -20.71%, #fbffff 0, #ecfffd 7.14%, #dafffa 14.29%, #c6fff7 21.43%, #aefff5 28.57%, #92fff3 35.71%, #70fcf2 42.86%, #3cf2f2 50%, #00e7f3 57.14%, #00ddf6 64.29%, #00d4fa 71.43%, #00cbff 78.57%, #00c2ff 85.71%, #00baff 92.86%, #00b3ff 100%);
+  
+   }
+   
+   </style>
+
+
+ <h1>Crear Administrador</h1>
+
+
+<div class="row">
+    
+    <div class="col-sm-4">
+
+        <form asp-action="registro_administrador" asp-controller="Home" method="post">
+           <input  asp-for="IdUsuario" type="hidden"/>
+
+           <div class="mb-2">
+               <label class="form-label" > Nombre </label> 
+              <input class="form-control form-control-sm"  asp-for="Nombre" type="text" /> </div>
+            
+               <div class="mb-2">
+               <label class="form-label"> Apellido </label> 
+              <input class="form-control form-control-sm"  asp-for=Apellido type="text" /></div>
+
+               <div class="mb-2">
+               <label class="form-label"> Nombre de usuario </label> 
+              <input class="form-control form-control-sm"  asp-for=NombreUsuario type="text" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label"> Contraseña </label> 
+              <input class="form-control form-control-sm"  asp-for=Contrasena type="password" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label"> Correo electronico </label> 
+              <input class="form-control form-control-sm"  asp-for="Correo"type="email" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label">  Fecha de nacimiento </label>
+              <input class="form-control form-control-sm"  asp-for="FechaNacimiento" type="date" /> </div>
+
+               <div class="mb-2">
+               <label class="form-label"> Estado </label> 
+              <input class="form-control form-control-sm"  asp-for="Estado" type="text" /> </div>
+              
+                 <div class="mb-3"> 
+                     
+               
+                    
+                    <button class="btn btn-primary btn-sm w-25" type="submit">Registrar</button>
+
+                
+
+                 <a class="btn btn-dark btn-sm" asp-action="registro_encargado" asp-controller="Home" >Regresar</a>
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>

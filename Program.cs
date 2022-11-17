@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using splash_alert.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using splash_alert.Servicio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
     option.AccessDeniedPath = "/Home/Privacy";
 });
+
+
+builder.Services.AddScoped<IServicioApi, Servicio_Apis>();
 
 var app = builder.Build();
 
